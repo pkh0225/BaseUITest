@@ -388,6 +388,7 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNI-2m-YUl" customClass="BaseLabel" customModule="BaseUITest" customModuleProvider="target">
                                 <rect key="frame" x="57" y="498" width="300" height="20"/>
+                                <color key="backgroundColor" red="0.75051209760000004" green="0.79388961619999998" blue="0.41122612330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="T29-gU-DKZ"/>
                                     <constraint firstAttribute="width" constant="300" id="mMH-Aa-gdp"/>
@@ -398,6 +399,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFA-7k-Fqt" customClass="BaseLabel" customModule="BaseUITest" customModuleProvider="target">
                                 <rect key="frame" x="186.5" y="550" width="41.5" height="20.5"/>
+                                <color key="backgroundColor" red="0.75051209760000004" green="0.79388961619999998" blue="0.41122612330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

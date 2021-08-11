@@ -5,24 +5,6 @@ class BaseLabel: UILabel {
         case rect
         case round
         case oval
-
-        func cornerRadius(size: Size) -> CGFloat {
-            switch self {
-            case .rect:
-                return 0
-            case .round:
-                switch size {
-                case .Large:
-                    return 6
-                case .Medium:
-                    return 4
-                case .Small:
-                    return 2
-                }
-            case .oval:
-                return size.height() / 2.0
-            }
-        }
     }
 
     enum ImageAlignment: String {
@@ -31,107 +13,125 @@ class BaseLabel: UILabel {
     }
 
     enum Size: String {
-        case Large
-        case Medium
-        case Small
+        case L
+        case M
+        case S
 
-        func height() -> CGFloat {
+        var height: CGFloat {
             switch self {
-            case .Large:
+            case .L:
                 return 24
-            case .Medium:
+            case .M:
                 return 20
-            case .Small:
+            case .S:
                 return 16
             }
         }
 
-        func font() -> UIFont {
+        var font: UIFont {
             var fontName: String = ""
             var size: CGFloat = 0
             switch self {
-            case .Large:
-                fontName = "AppleSDGothicNeo-Bold"
+            case .L:
+                fontName = "Roboto-Bold"
                 size = 12
-            case .Medium:
-                fontName = "AppleSDGothicNeo-Medium"
+            case .M:
+                fontName = "Roboto-Medium"
                 size = 12
-            case .Small:
-                fontName = "AppleSDGothicNeo-Bold"
+            case .S:
+                fontName = "Roboto-Bold"
                 size = 10
             }
 
             return UIFont(name: fontName, size: size) ?? UIFont.systemFont(ofSize: size)
         }
 
-        func imageSize() -> CGFloat {
+        var imageSize: CGFloat {
             switch self {
-            case .Large:
+            case .L:
                 return 16
-            case .Medium:
-                return 12
-            case .Small:
-                return 8
+            case .M:
+                return 16
+            case .S:
+                return 16
             }
         }
 
-        func imageGap() -> CGFloat {
+        var imageGap: CGFloat {
             switch self {
-            case .Large:
+            case .L:
                 return 1
-            case .Medium:
+            case .M:
                 return 1
-            case .Small:
+            case .S:
                 return 1
             }
         }
 
-        func inset() -> UIEdgeInsets {
+        var inset: UIEdgeInsets {
             switch self {
-            case .Large:
+            case .L:
                 return UIEdgeInsets(top: 1.5, left: 8, bottom: -1.5, right: 8)
-            case .Medium:
+            case .M:
                 return UIEdgeInsets(top: 1, left: 6, bottom: -1, right: 6)
-            case .Small:
+            case .S:
                 return UIEdgeInsets(top: 0.5, left: 4, bottom: -0.5, right: 4)
+            }
+        }
+
+        func cornerRadius(rectStyle: RectStyle) -> CGFloat {
+            switch rectStyle {
+            case .rect:
+                return 0
+            case .round:
+                switch self {
+                case .L:
+                    return 6
+                case .M:
+                    return 4
+                case .S:
+                    return 2
+                }
+            case .oval:
+                return self.height / 2.0
             }
         }
     }
     private var widthConst: NSLayoutConstraint? = nil
     private var heightConst: NSLayoutConstraint? = nil
 
-    var baseSize: Size = .Medium {
+    var baseSize: Size = .M {
         didSet {
             if translatesAutoresizingMaskIntoConstraints == false {
                 if isHeightConstraint {
-                    heightConstraint = baseSize.height()
+                    heightConstraint = baseSize.height
                 }
                 else {
                     if let heightConst = heightConst {
-                        heightConst.constant = baseSize.height()
+                        heightConst.constant = baseSize.height
                     }
                     else {
-                        heightConst = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: baseSize.height())
+                        heightConst = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: baseSize.height)
                         addConstraint(heightConst!)
                     }
                 }
             }
-            frame.size.height = baseSize.height()
+            frame.size.height = baseSize.height
 
-            font = baseSize.font()
+            font = baseSize.font
             if let image = image {
                 imageView.isHidden = false
                 imageView.image = image
-                imageView.size = image.size.ratioSize(setWidth: baseSize.imageSize())
+                imageView.size = image.size.ratioSize(setWidth: baseSize.imageSize)
             }
-            self.cornerRadius = rectStyle.cornerRadius(size: baseSize)
+            self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
             updateUI()
         }
     }
 
     var rectStyle: RectStyle = .rect {
         didSet {
-            self.cornerRadius = rectStyle.cornerRadius(size: baseSize)
+            self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
         }
     }
 
@@ -158,7 +158,7 @@ class BaseLabel: UILabel {
             if let image = image {
                 imageView.isHidden = false
                 imageView.image = image
-                imageView.size = image.size.ratioSize(setWidth: baseSize.imageSize())
+                imageView.size = image.size.ratioSize(setWidth: baseSize.imageSize)
             }
             else {
                 imageView.isHidden = true
@@ -192,7 +192,7 @@ class BaseLabel: UILabel {
     }
 
     func updateUI() {
-        var defaultInset = baseSize.inset()
+        var defaultInset = baseSize.inset
 
         if let _ = image {
             let strlen = text?.size(font).w ?? 0
@@ -201,32 +201,32 @@ class BaseLabel: UILabel {
             case .left, .natural:
                 switch imageAlignment {
                 case .left:
-                    imageView.x = baseSize.inset().left
-                    defaultInset.left = imageView.maxX + baseSize.imageGap()
+                    imageView.x = baseSize.inset.left
+                    defaultInset.left = imageView.maxX + baseSize.imageGap
                 case .right:
-                    imageView.x = baseSize.inset().left + strlen + baseSize.imageGap()
-                    defaultInset.left = baseSize.inset().left
+                    imageView.x = baseSize.inset.left + strlen + baseSize.imageGap
+                    defaultInset.left = baseSize.inset.left
                 }
             case .center:
-                let imageViewhalf = (imageView.w + baseSize.imageGap()) / 2
+                let imageViewhalf = (imageView.w + baseSize.imageGap) / 2
                 switch imageAlignment {
                 case .left:
                     imageView.x = ((w - strlen) / 2) - imageViewhalf
                     defaultInset.left = imageViewhalf
                     defaultInset.right = -defaultInset.left
                 case .right:
-                    imageView.x = (w / 2) + (strlen / 2) - imageViewhalf + baseSize.imageGap()
+                    imageView.x = (w / 2) + (strlen / 2) - imageViewhalf + baseSize.imageGap
                     defaultInset.left = -imageViewhalf
                     defaultInset.right = imageViewhalf
                 }
             case .right:
                 switch imageAlignment {
                 case .left:
-                    imageView.x = w - baseSize.inset().right - strlen - baseSize.imageGap() - imageView.w
-                    defaultInset.right = baseSize.inset().right
+                    imageView.x = w - baseSize.inset.right - strlen - baseSize.imageGap - imageView.w
+                    defaultInset.right = baseSize.inset.right
                 case .right:
-                    imageView.x = w - imageView.w - baseSize.inset().right
-                    defaultInset.right = imageView.w + baseSize.inset().right + baseSize.imageGap()
+                    imageView.x = w - imageView.w - baseSize.inset.right
+                    defaultInset.right = imageView.w + baseSize.inset.right + baseSize.imageGap
                 }
             case .justified:
                 break
@@ -234,7 +234,7 @@ class BaseLabel: UILabel {
                 break
             }
 
-            let maxWidth = ceilUI(baseSize.inset().left + imageView.w + baseSize.imageGap() + strlen + baseSize.inset().right)
+            let maxWidth = ceilUI(baseSize.inset.left + imageView.w + baseSize.imageGap + strlen + baseSize.inset.right)
             if translatesAutoresizingMaskIntoConstraints == false {
                 if isWidthConstraint == false {
                     if let widthConst = widthConst {
@@ -250,7 +250,7 @@ class BaseLabel: UILabel {
         }
         else {
             let strlen = text?.size(font).w ?? 0
-            let maxWidth = ceilUI(baseSize.inset().left + strlen + baseSize.inset().right)
+            let maxWidth = ceilUI(baseSize.inset.left + strlen + baseSize.inset.right)
             if translatesAutoresizingMaskIntoConstraints == false {
                 if isWidthConstraint == false {
                     if let widthConst = widthConst {

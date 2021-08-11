@@ -34,18 +34,21 @@ class ViewController: UIViewController {
         DropDownData(title: "Small", value: BaseButton.Size.S),
         DropDownData(title: "XSmall", value: BaseButton.Size.XS),
     ]
-    let contentAlignmentList: [DropDownData] = [ DropDownData(title: "left", value: UIControl.ContentHorizontalAlignment.left),
-                                                 DropDownData(title: "center", value: UIControl.ContentHorizontalAlignment.center),
-                                                 DropDownData(title: "right", value: UIControl.ContentHorizontalAlignment.right),
+    let contentAlignmentList: [DropDownData] = [
+        DropDownData(title: "left", value: UIControl.ContentHorizontalAlignment.left),
+        DropDownData(title: "center", value: UIControl.ContentHorizontalAlignment.center),
+        DropDownData(title: "right", value: UIControl.ContentHorizontalAlignment.right),
     ]
-    let imageAlignmentList: [DropDownData] = [ DropDownData(title: "left", value: BaseButton.ImageAlignment.left),
-                                               DropDownData(title: "right", value: BaseButton.ImageAlignment.right),
+    let imageAlignmentList: [DropDownData] = [
+        DropDownData(title: "left", value: BaseButton.ImageAlignment.left),
+        DropDownData(title: "right", value: BaseButton.ImageAlignment.right),
     ]
-    let rectStyleList: [DropDownData] = [ DropDownData(title: "rect", value: BaseButton.RectStyle.rect),
-                                          DropDownData(title: "round", value: BaseButton.RectStyle.round),
-                                          DropDownData(title: "oval", value: BaseButton.RectStyle.oval),
+    let rectStyleList: [DropDownData] = [
+        DropDownData(title: "rect", value: BaseButton.RectStyle.rect),
+        DropDownData(title: "round", value: BaseButton.RectStyle.round),
+        DropDownData(title: "oval", value: BaseButton.RectStyle.oval),
     ]
-//-------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------
 
 
     @IBOutlet weak var LabelSizeButton: UIButton!
@@ -61,22 +64,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel2: BaseLabel!
 
 
-    let LabelsizeList: [DropDownData] = [ DropDownData(title: "Large", value: BaseLabel.Size.Large),
-                                     DropDownData(title: "Medium", value: BaseLabel.Size.Medium),
-                                     DropDownData(title: "Small", value: BaseLabel.Size.Small),
+    let LabelsizeList: [DropDownData] = [ DropDownData(title: "Large", value: BaseLabel.Size.L),
+                                          DropDownData(title: "Medium", value: BaseLabel.Size.M),
+                                          DropDownData(title: "Small", value: BaseLabel.Size.S),
     ]
     let LabelAlignmentList: [DropDownData] = [ DropDownData(title: "left", value: NSTextAlignment.left),
                                                DropDownData(title: "center", value: NSTextAlignment.center),
-                                                 DropDownData(title: "right", value: NSTextAlignment.right),
+                                               DropDownData(title: "right", value: NSTextAlignment.right),
     ]
     let LabelImageAlignmentList: [DropDownData] = [ DropDownData(title: "left", value: BaseLabel.ImageAlignment.left),
-                                               DropDownData(title: "right", value: BaseLabel.ImageAlignment.right),
+                                                    DropDownData(title: "right", value: BaseLabel.ImageAlignment.right),
     ]
     let LabelRectStyleList: [DropDownData] = [ DropDownData(title: "rect", value: BaseLabel.RectStyle.rect),
-                                          DropDownData(title: "round", value: BaseLabel.RectStyle.round),
-                                          DropDownData(title: "oval", value: BaseLabel.RectStyle.oval),
+                                               DropDownData(title: "round", value: BaseLabel.RectStyle.round),
+                                               DropDownData(title: "oval", value: BaseLabel.RectStyle.oval),
     ]
-//-------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------
 
 
     var dropDown: DropDown?
@@ -84,7 +87,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.resultButton.baseSize = .XL
+        self.resultButton2.baseSize = .XL
+
+        self.resultLabel.baseSize = .L
+        self.resultLabel2.baseSize = .L
     }
 
     func showDropDown(anchorView: UIView, dataList: [DropDownData], selectedIndex: Int, selectionAction: SelectionClosure?) {
@@ -97,13 +104,13 @@ class ViewController: UIViewController {
         self.dropDown?.selectionAction = selectionAction
         self.dropDown?.selectedTextColor = UIColor.black
         self.dropDown?.selectionBackgroundColor = .darkGray
-//        self.dropDown?.cancelAction = { [weak self] () in
-//            guard let self = self else { return }
-//        }
+        //        self.dropDown?.cancelAction = { [weak self] () in
+        //            guard let self = self else { return }
+        //        }
         self.dropDown?.show()
 
     }
-//MARK:- BaseButton
+    //MARK:- BaseButton
     @IBAction func onSizeButton(_ sender: UIButton) {
         showDropDown(anchorView: sender, dataList: sizeList, selectedIndex: sender.tag) { [weak self] index, title in
             guard let self = self else { return }

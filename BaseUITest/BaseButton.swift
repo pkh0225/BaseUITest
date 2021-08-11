@@ -200,6 +200,11 @@ class BaseButton: UIButton {
         updateUI()
     }
 
+    override func setTitle(_ title: String?, for state: UIControl.State) {
+        super.setTitle(title, for: .normal)
+        updateUI()
+    }
+
     func updateUI() {
         switch contentAlignment {
         case .center:
