@@ -59,18 +59,34 @@ class BaseButton: UIButton {
         }
 
 
-        var imageSize: CGFloat {
-            switch self {
-            case .XL:
-                return 32
-            case .L:
-                return 28
-            case .M:
-                return 24
-            case .S:
-                return 24
-            case .XS:
-                return 16
+        func imageSize(_ byText: Bool?) -> CGFloat {
+            if byText ?? false {
+                switch self {
+                case .XL:
+                    return 24
+                case .L:
+                    return 20
+                case .M:
+                    return 20
+                case .S:
+                    return 16
+                case .XS:
+                    return 16
+                }
+            }
+            else {
+                switch self {
+                case .XL:
+                    return 32
+                case .L:
+                    return 28
+                case .M:
+                    return 24
+                case .S:
+                    return 24
+                case .XS:
+                    return 16
+                }
             }
         }
 
@@ -154,7 +170,7 @@ class BaseButton: UIButton {
 
             titleLabel?.font = baseSize.font
             if let image = image(for: .normal) {
-                let imageChange = image.toSize(image.size.ratioSize(setWidth: baseSize.imageSize))
+                let imageChange = image.toSize(image.size.ratioSize(setWidth: baseSize.imageSize(self.title(for: .normal)?.isValid)))
                 setImage(imageChange, for: .normal)
             }
             self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
@@ -190,7 +206,7 @@ class BaseButton: UIButton {
 
     override func setImage(_ image: UIImage?, for state: UIControl.State) {
         if let image = image {
-            let imageChange = image.toSize(image.size.ratioSize(setWidth: baseSize.imageSize))
+            let imageChange = image.toSize(image.size.ratioSize(setWidth: baseSize.imageSize(self.title(for: .normal)?.isValid)))
             super.setImage(imageChange, for: state)
         }
         else {
@@ -202,6 +218,16 @@ class BaseButton: UIButton {
 
     override func setTitle(_ title: String?, for state: UIControl.State) {
         super.setTitle(title, for: .normal)
+
+        if let image = image(for: .normal) {
+            let titleValid = title?.isValid ?? false
+            let imageSize = baseSize.imageSize(titleValid)
+
+            if image.size != CGSize(width: imageSize, height: imageSize)  {
+                setImage(image, for: .normal)
+            }
+        }
+
         updateUI()
     }
 
