@@ -78,9 +78,9 @@ class BaseLabel: UILabel {
         func imageGap() -> CGFloat {
             switch self {
             case .Large:
-                return 3
+                return 1
             case .Medium:
-                return 2
+                return 1
             case .Small:
                 return 1
             }

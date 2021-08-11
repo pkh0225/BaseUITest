@@ -27,11 +27,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultButton2: BaseButton!
 
 
-    let sizeList: [DropDownData] = [ DropDownData(title: "Large", value: BaseButton.Size.Large),
-                                     DropDownData(title: "Medium", value: BaseButton.Size.Medium),
-                                     DropDownData(title: "Small", value: BaseButton.Size.Small),
-                                     DropDownData(title: "XSmall", value: BaseButton.Size.XSmall),
-                                     DropDownData(title: "XXSmall", value: BaseButton.Size.XXSmall),
+    let sizeList: [DropDownData] = [
+        DropDownData(title: "XLarge", value: BaseButton.Size.XL),
+        DropDownData(title: "Large", value: BaseButton.Size.L),
+        DropDownData(title: "Medium", value: BaseButton.Size.M),
+        DropDownData(title: "Small", value: BaseButton.Size.S),
+        DropDownData(title: "XSmall", value: BaseButton.Size.XS),
     ]
     let contentAlignmentList: [DropDownData] = [ DropDownData(title: "left", value: UIControl.ContentHorizontalAlignment.left),
                                                  DropDownData(title: "center", value: UIControl.ContentHorizontalAlignment.center),
