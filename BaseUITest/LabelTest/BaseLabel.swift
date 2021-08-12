@@ -1,5 +1,15 @@
 import UIKit
 
+struct UI_BaseLabel {
+    var size: BaseLabel.Size
+    var textAlignment: NSTextAlignment
+    var imageAlignment: BaseLabel.ImageAlignment
+    var rectStyle: BaseLabel.RectStyle
+    var text: String?
+    var image: UIImage?
+    var data: Any?
+}
+
 class BaseLabel: UILabel {
     enum RectStyle: String {
         case rect
@@ -71,7 +81,7 @@ class BaseLabel: UILabel {
         var inset: UIEdgeInsets {
             switch self {
             case .L:
-                return UIEdgeInsets(top: 1.5, left: 8, bottom: -1.5, right: 8)
+                return UIEdgeInsets(top: 0.5, left: 8, bottom: -0.5, right: 8)
             case .M:
                 return UIEdgeInsets(top: 1, left: 6, bottom: -1, right: 6)
             case .S:
@@ -97,51 +107,48 @@ class BaseLabel: UILabel {
             }
         }
     }
+
+    var fillColor: UIColor? {
+        didSet {
+            backgroundColor = fillColor
+        }
+    }
+
+    override var borderColor: UIColor? {
+        get {
+            return UIColor(cgColor: self.layer.borderColor!)
+        }
+        set {
+            guard self.layer.borderColor != newValue?.cgColor else { return }
+            self.layer.borderColor = newValue?.cgColor
+            self.borderWidth = 1
+            setNeedsDisplay()
+        }
+    }
+
+
     private var widthConst: NSLayoutConstraint? = nil
     private var heightConst: NSLayoutConstraint? = nil
 
     var baseSize: Size = .M {
         didSet {
-            if translatesAutoresizingMaskIntoConstraints == false {
-                if isHeightConstraint {
-                    heightConstraint = baseSize.height
-                }
-                else {
-                    if let heightConst = heightConst {
-                        heightConst.constant = baseSize.height
-                    }
-                    else {
-                        heightConst = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: baseSize.height)
-                        addConstraint(heightConst!)
-                    }
-                }
-            }
-            frame.size.height = baseSize.height
-
             font = baseSize.font
-            if let image = image {
-                imageView.isHidden = false
-                imageView.image = image
-                imageView.size = image.size.ratioSize(setWidth: baseSize.imageSize)
-            }
-            self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
+            updateImageSize()
+            updateHeight()
+            updateWidth()
+            updateRectStyle()
             updateUI()
+
         }
     }
 
     var rectStyle: RectStyle = .rect {
         didSet {
-            self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
+            updateRectStyle()
         }
     }
 
     override var textAlignment: NSTextAlignment {
-        didSet {
-            updateUI()
-        }
-    }
-
-    override var text: String? {
         didSet {
             updateUI()
         }
@@ -153,24 +160,30 @@ class BaseLabel: UILabel {
         }
     }
 
+    override var text: String? {
+        didSet {
+            updateWidth()
+            updateUI()
+        }
+    }
+
     var image: UIImage? = nil {
         didSet {
             if let image = image {
                 imageView.isHidden = false
                 imageView.image = image
-                imageView.size = image.size.ratioSize(setWidth: baseSize.imageSize)
+                updateImageSize()
             }
             else {
                 imageView.isHidden = true
             }
+            updateWidth()
             updateUI()
         }
     }
 
     lazy var imageView: UIImageView = {
         let v = UIImageView()
-//        v.borderColor = .green
-//        v.borderWidth = 1
         addSubview(v)
         return v
     }()
@@ -191,12 +204,76 @@ class BaseLabel: UILabel {
         
     }
 
+    override func sizeToFit() {
+        updateHeight()
+        updateWidth()
+        updateUI()
+    }
+
+    func updateRectStyle() {
+        self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
+    }
+
+    func updateImageSize() {
+        if let image = image {
+            imageView.size = image.size.ratioSize(setWidth: baseSize.imageSize)
+        }
+    }
+
+    func updateHeight() {
+        if translatesAutoresizingMaskIntoConstraints == false {
+            if isHeightConstraint {
+                heightConstraint = baseSize.height
+            }
+            else {
+                if let heightConst = heightConst {
+                    heightConst.constant = baseSize.height
+                }
+                else {
+                    heightConst = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: baseSize.height)
+                    addConstraint(heightConst!)
+                }
+            }
+        }
+        frame.size.height = baseSize.height
+    }
+
+    func updateWidth() {
+        var strlen: CGFloat = 0
+        if let text = text, text.isValid {
+            strlen = text.size(font).w
+        }
+        var imageWidth: CGFloat = 0
+        if imageView.isHidden == false {
+            imageWidth = baseSize.imageSize + baseSize.imageGap
+        }
+
+        let maxWidth = ceilUI(baseSize.inset.left + imageWidth + strlen + baseSize.inset.right)
+        if translatesAutoresizingMaskIntoConstraints == false {
+            if isWidthConstraint == false {
+                if let widthConst = widthConst {
+                    widthConst.constant = maxWidth
+                }
+                else {
+                    widthConst = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: maxWidth)
+                    addConstraint(widthConst!)
+                }
+                frame.size.width = maxWidth
+            }
+        }
+        else {
+            frame.size.width = maxWidth
+        }
+    }
+
     func updateUI() {
         var defaultInset = baseSize.inset
+        var strlen: CGFloat = 0
+        if let text = text, text.isValid {
+            strlen = text.size(font).w
+        }
 
-        if let _ = image {
-            let strlen = text?.size(font).w ?? 0
-
+        if let _ = image, imageView.isHidden == false {
             switch textAlignment {
             case .left, .natural:
                 switch imageAlignment {
@@ -232,35 +309,6 @@ class BaseLabel: UILabel {
                 break
             @unknown default:
                 break
-            }
-
-            let maxWidth = ceilUI(baseSize.inset.left + imageView.w + baseSize.imageGap + strlen + baseSize.inset.right)
-            if translatesAutoresizingMaskIntoConstraints == false {
-                if isWidthConstraint == false {
-                    if let widthConst = widthConst {
-                        widthConst.constant = maxWidth
-                    }
-                    else {
-                        widthConst = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: maxWidth)
-                        addConstraint(widthConst!)
-                    }
-                }
-            }
-            w = maxWidth
-        }
-        else {
-            let strlen = text?.size(font).w ?? 0
-            let maxWidth = ceilUI(baseSize.inset.left + strlen + baseSize.inset.right)
-            if translatesAutoresizingMaskIntoConstraints == false {
-                if isWidthConstraint == false {
-                    if let widthConst = widthConst {
-                        widthConst.constant = maxWidth
-                    }
-                    else {
-                        widthConst = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: maxWidth)
-                        addConstraint(widthConst!)
-                    }
-                }
             }
         }
 

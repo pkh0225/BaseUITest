@@ -1,5 +1,15 @@
 import UIKit
 
+struct UI_BaseButton {
+    var size: BaseButton.Size
+    var contentAlignment: UIControl.ContentHorizontalAlignment
+    var imageAlignment: BaseButton.ImageAlignment
+    var rectStyle: BaseButton.RectStyle
+    var text: String?
+    var image: UIImage?
+    var data: Any?
+}
+
 class BaseButton: UIButton {
     enum RectStyle: String {
         case rect
@@ -147,40 +157,18 @@ class BaseButton: UIButton {
     
     var baseSize: Size = .M {
         didSet {
-            if translatesAutoresizingMaskIntoConstraints == false {
-                if isHeightConstraint {
-                    heightConstraint = baseSize.height
-                }
-                else {
-                    if let heightConst = heightConst {
-                        heightConst.constant = baseSize.height
-                    }
-                    else {
-                        heightConst = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: baseSize.height)
-                        addConstraint(heightConst!)
-                    }
-                }
-            }
-            frame.size.height = baseSize.height
-
             titleLabel?.font = baseSize.font
-            if let image = image(for: .normal) {
-                setImage(image, for: .normal)
-            }
-
-            titleLabel?.font = baseSize.font
-            if let image = image(for: .normal) {
-                let imageChange = image.toSize(image.size.ratioSize(setWidth: baseSize.imageSize(self.title(for: .normal)?.isValid)))
-                setImage(imageChange, for: .normal)
-            }
-            self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
+            updateImageSize()
+            updateRectStyle()
+            updateHeight()
+            updateWidth()
             updateUI()
         }
     }
 
     var rectStyle: RectStyle = .rect {
         didSet {
-            self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
+            updateRectStyle()
         }
     }
 
@@ -204,111 +192,165 @@ class BaseButton: UIButton {
         }
     }
 
-    override func setImage(_ image: UIImage?, for state: UIControl.State) {
-        if let image = image {
-            let imageChange = image.toSize(image.size.ratioSize(setWidth: baseSize.imageSize(self.title(for: .normal)?.isValid)))
-            super.setImage(imageChange, for: state)
+    var fillColor: UIColor? {
+        didSet {
+            backgroundColor = fillColor
         }
-        else {
-            super.setImage(nil, for: state)
-        }
+    }
 
-        updateUI()
+    override var borderColor: UIColor? {
+        get {
+            return UIColor(cgColor: self.layer.borderColor!)
+        }
+        set {
+            guard self.layer.borderColor != newValue?.cgColor else { return }
+            self.layer.borderColor = newValue?.cgColor
+            self.borderWidth = 1
+            setNeedsDisplay()
+        }
+    }
+
+    override func setImage(_ image: UIImage?, for state: UIControl.State) {
+        super.setImage(image, for: state)
+        updateImageSize()
+        updateWidth()
     }
 
     override func setTitle(_ title: String?, for state: UIControl.State) {
-        super.setTitle(title, for: .normal)
+        super.setTitle(title, for: state)
 
-        if let image = image(for: .normal) {
-            let titleValid = title?.isValid ?? false
-            let imageSize = baseSize.imageSize(titleValid)
+        updateImageSize()
+        updateWidth()
+    }
 
-            if image.size != CGSize(width: imageSize, height: imageSize)  {
-                setImage(image, for: .normal)
-            }
-        }
-
+    override func sizeToFit() {
+        updateHeight()
+        updateWidth()
         updateUI()
     }
 
+    func updateRectStyle() {
+        self.cornerRadius = baseSize.cornerRadius(rectStyle: rectStyle)
+    }
+
+    func updateImageSize() {
+        func updateImage(_ image: UIImage, for state: UIControl.State) {
+            let isTitle = self.title(for: state)?.isValid ?? false
+            let imageChange = image.toSize(image.size.ratioSize(setWidth: baseSize.imageSize(isTitle)))
+            if image.size != imageChange?.size {
+                setImage(imageChange, for: state)
+            }
+        }
+
+        if let image = image(for: .normal) {
+            updateImage(image, for: .normal)
+        }
+        if let image = image(for: .highlighted) {
+            updateImage(image, for: .highlighted)
+        }
+        if let image = image(for: .disabled) {
+            updateImage(image, for: .disabled)
+        }
+        if let image = image(for: .selected) {
+            updateImage(image, for: .selected)
+        }
+        if let image = image(for: .focused) {
+            updateImage(image, for: .focused)
+        }
+        if let image = image(for: .application) {
+            updateImage(image, for: .application)
+        }
+        if let image = image(for: .reserved) {
+            updateImage(image, for: .reserved)
+        }
+
+    }
+
+    func updateHeight() {
+        if translatesAutoresizingMaskIntoConstraints == false {
+            if isHeightConstraint {
+                heightConstraint = baseSize.height
+            }
+            else {
+                if let heightConst = heightConst {
+                    heightConst.constant = baseSize.height
+                }
+                else {
+                    heightConst = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: baseSize.height)
+                    addConstraint(heightConst!)
+                }
+                frame.size.height = baseSize.height
+            }
+        }
+        else {
+            frame.size.height = baseSize.height
+        }
+    }
+
+    func updateWidth() {
+        var strlen: CGFloat = 0
+        if let title = self.title(for: state), title.isValid {
+            strlen = title.size(self.titleLabel?.font ?? UIFont()).w
+        }
+        var imageWidth: CGFloat = 0
+        if let image = self.image(for: state) {
+            imageWidth = image.w + baseSize.imageGap
+        }
+        let maxWidth = ceilUI(baseSize.inset.left + imageWidth + strlen + baseSize.inset.right)
+        if translatesAutoresizingMaskIntoConstraints == false {
+            if isWidthConstraint == false {
+                if let widthConst = widthConst {
+                    widthConst.constant = maxWidth
+                }
+                else {
+                    widthConst = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: maxWidth)
+                    addConstraint(widthConst!)
+                }
+                frame.size.width = maxWidth
+            }
+        }
+        else {
+            frame.size.width = maxWidth
+        }
+    }
+
     func updateUI() {
+        contentEdgeInsets = .zero
+        imageEdgeInsets = .zero
+        titleEdgeInsets = .zero
+        
         switch contentAlignment {
         case .center:
-            contentEdgeInsets = .zero
+            break
         case .left, .leading:
             contentEdgeInsets = UIEdgeInsets(top: 0, left: baseSize.inset.left, bottom: 0, right: 0)
+            if let _ = self.image(for: state) {
+                switch imageAlignment {
+                case .left:
+                    titleEdgeInsets = UIEdgeInsets(top: 0, left: baseSize.imageGap, bottom: 0, right: 0)
+                    
+                case .right:
+                    imageEdgeInsets = UIEdgeInsets(top: 0, left: baseSize.imageGap, bottom: 0, right: 0)
+                }
+            }
+            
+            
         case .right, .trailing:
             contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: baseSize.inset.right)
+            if let _ = self.image(for: state) {
+                switch imageAlignment {
+                case .left:
+                    imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: baseSize.imageGap)
+                    
+                case .right:
+                    titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: baseSize.imageGap)
+                }
+            }
         case .fill:
             break
         @unknown default:
             break
         }
-
-        if let image = self.image(for: .normal) {
-            imageEdgeInsets = .zero
-            titleEdgeInsets = .zero
-            switch contentAlignment {
-            case .center:
-                imageEdgeInsets = .zero
-                titleEdgeInsets = .zero
-            case .left, .leading:
-                switch imageAlignment {
-                case .left:
-                    titleEdgeInsets = UIEdgeInsets(top: 0, left: baseSize.imageGap, bottom: 0, right: 0)
-
-                case .right:
-                    imageEdgeInsets = UIEdgeInsets(top: 0, left: baseSize.imageGap, bottom: 0, right: 0)
-                }
-
-            case .right, .trailing:
-                switch imageAlignment {
-                case .left:
-                    imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: baseSize.imageGap)
-
-                case .right:
-                    titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: baseSize.imageGap)
-                }
-
-            case .fill:
-                break
-            @unknown default:
-                break
-            }
-
-            let strlen = self.title(for: .normal)?.size(self.titleLabel?.font ?? UIFont()).w ?? 0
-            let maxWidth = ceilUI(baseSize.inset.left + image.w + baseSize.imageGap + strlen + baseSize.inset.right)
-            if translatesAutoresizingMaskIntoConstraints == false {
-                if isWidthConstraint == false {
-                    if let widthConst = widthConst {
-                        widthConst.constant = maxWidth
-                    }
-                    else {
-                        widthConst = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: maxWidth)
-                        addConstraint(widthConst!)
-                    }
-                }
-            }
-            w = maxWidth
-        }
-        else {
-            let strlen = self.title(for: .normal)?.size(self.titleLabel?.font ?? UIFont()).w ?? 0
-            let maxWidth = ceilUI(baseSize.inset.left + strlen + baseSize.inset.right)
-            if translatesAutoresizingMaskIntoConstraints == false {
-                if isWidthConstraint == false {
-                    if let widthConst = widthConst {
-                        widthConst.constant = maxWidth
-                    }
-                    else {
-                        widthConst = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: maxWidth)
-                        addConstraint(widthConst!)
-                    }
-                }
-            }
-            w = maxWidth
-        }
-
-        setNeedsLayout()
     }
 }
 

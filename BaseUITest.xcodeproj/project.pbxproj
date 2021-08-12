@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5213C68526AFAB4D00A269A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213C68426AFAB4D00A269A1 /* AppDelegate.swift */; };
 		5213C68726AFAB4D00A269A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213C68626AFAB4D00A269A1 /* SceneDelegate.swift */; };
-		5213C68926AFAB4D00A269A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213C68826AFAB4D00A269A1 /* ViewController.swift */; };
+		5213C68926AFAB4D00A269A1 /* ButtonTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213C68826AFAB4D00A269A1 /* ButtonTestViewController.swift */; };
 		5213C68C26AFAB4D00A269A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5213C68A26AFAB4D00A269A1 /* Main.storyboard */; };
 		5213C68E26AFAB4E00A269A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5213C68D26AFAB4E00A269A1 /* Assets.xcassets */; };
 		5213C69126AFAB4E00A269A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5213C68F26AFAB4E00A269A1 /* LaunchScreen.storyboard */; };
@@ -64,13 +64,22 @@
 		5213C73D26AFE72000A269A1 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213C73C26AFE72000A269A1 /* ColorPickerView.swift */; };
 		5213C73F26AFF86100A269A1 /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = 5213C73E26AFF86100A269A1 /* palette.png */; };
 		5213C74126AFFF5F00A269A1 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213C74026AFFF5F00A269A1 /* BaseLabel.swift */; };
+		5226644D26C3B30F00A0D1F6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226644C26C3B30F00A0D1F6 /* RootViewController.swift */; };
+		5226644F26C3B45700A0D1F6 /* LabelTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226644E26C3B45700A0D1F6 /* LabelTestViewController.swift */; };
+		5226645126C3B4EB00A0D1F6 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226645026C3B4EB00A0D1F6 /* RouterProtocol.swift */; };
+		5226645826C3B52900A0D1F6 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226645426C3B52900A0D1F6 /* PopAnimator.swift */; };
+		5226645926C3B52900A0D1F6 /* SnapShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226645526C3B52900A0D1F6 /* SnapShotView.swift */; };
+		5226645A26C3B52900A0D1F6 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226645626C3B52900A0D1F6 /* PushAnimator.swift */; };
+		5226645B26C3B52900A0D1F6 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226645726C3B52900A0D1F6 /* NavigationManager.swift */; };
+		5226645D26C3BA3E00A0D1F6 /* ButtonFullCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226645C26C3BA3E00A0D1F6 /* ButtonFullCaseViewController.swift */; };
+		5226646126C3C85B00A0D1F6 /* LabelFullCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226646026C3C85B00A0D1F6 /* LabelFullCaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5213C68126AFAB4D00A269A1 /* BaseUITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseUITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5213C68426AFAB4D00A269A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5213C68626AFAB4D00A269A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5213C68826AFAB4D00A269A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5213C68826AFAB4D00A269A1 /* ButtonTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTestViewController.swift; sourceTree = "<group>"; };
 		5213C68B26AFAB4D00A269A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5213C68D26AFAB4E00A269A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5213C69026AFAB4E00A269A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -127,6 +136,15 @@
 		5213C73C26AFE72000A269A1 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		5213C73E26AFF86100A269A1 /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
 		5213C74026AFFF5F00A269A1 /* BaseLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		5226644C26C3B30F00A0D1F6 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		5226644E26C3B45700A0D1F6 /* LabelTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTestViewController.swift; sourceTree = "<group>"; };
+		5226645026C3B4EB00A0D1F6 /* RouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		5226645426C3B52900A0D1F6 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
+		5226645526C3B52900A0D1F6 /* SnapShotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapShotView.swift; sourceTree = "<group>"; };
+		5226645626C3B52900A0D1F6 /* PushAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
+		5226645726C3B52900A0D1F6 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		5226645C26C3BA3E00A0D1F6 /* ButtonFullCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFullCaseViewController.swift; sourceTree = "<group>"; };
+		5226646026C3C85B00A0D1F6 /* LabelFullCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelFullCaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,14 +177,15 @@
 		5213C68326AFAB4D00A269A1 /* BaseUITest */ = {
 			isa = PBXGroup;
 			children = (
+				5226645F26C3BA6100A0D1F6 /* LabelTest */,
+				5226645E26C3BA4800A0D1F6 /* ButtonTest */,
+				5226645226C3B4F900A0D1F6 /* Util */,
 				5213C73926AFE6FA00A269A1 /* ColorPicker */,
 				5213C72426AFD04D00A269A1 /* DropDown */,
 				5213C69A26AFAB8800A269A1 /* extensions */,
-				5213C69826AFAB6900A269A1 /* BaseButton.swift */,
-				5213C74026AFFF5F00A269A1 /* BaseLabel.swift */,
 				5213C68426AFAB4D00A269A1 /* AppDelegate.swift */,
 				5213C68626AFAB4D00A269A1 /* SceneDelegate.swift */,
-				5213C68826AFAB4D00A269A1 /* ViewController.swift */,
+				5226644C26C3B30F00A0D1F6 /* RootViewController.swift */,
 				5213C68A26AFAB4D00A269A1 /* Main.storyboard */,
 				5213C68D26AFAB4E00A269A1 /* Assets.xcassets */,
 				5213C68F26AFAB4E00A269A1 /* LaunchScreen.storyboard */,
@@ -270,6 +289,46 @@
 			path = ColorPicker;
 			sourceTree = "<group>";
 		};
+		5226645226C3B4F900A0D1F6 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5226645326C3B52900A0D1F6 /* NavigationUtil */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		5226645326C3B52900A0D1F6 /* NavigationUtil */ = {
+			isa = PBXGroup;
+			children = (
+				5226645026C3B4EB00A0D1F6 /* RouterProtocol.swift */,
+				5226645426C3B52900A0D1F6 /* PopAnimator.swift */,
+				5226645526C3B52900A0D1F6 /* SnapShotView.swift */,
+				5226645626C3B52900A0D1F6 /* PushAnimator.swift */,
+				5226645726C3B52900A0D1F6 /* NavigationManager.swift */,
+			);
+			path = NavigationUtil;
+			sourceTree = "<group>";
+		};
+		5226645E26C3BA4800A0D1F6 /* ButtonTest */ = {
+			isa = PBXGroup;
+			children = (
+				5213C69826AFAB6900A269A1 /* BaseButton.swift */,
+				5213C68826AFAB4D00A269A1 /* ButtonTestViewController.swift */,
+				5226645C26C3BA3E00A0D1F6 /* ButtonFullCaseViewController.swift */,
+			);
+			path = ButtonTest;
+			sourceTree = "<group>";
+		};
+		5226645F26C3BA6100A0D1F6 /* LabelTest */ = {
+			isa = PBXGroup;
+			children = (
+				5213C74026AFFF5F00A269A1 /* BaseLabel.swift */,
+				5226644E26C3B45700A0D1F6 /* LabelTestViewController.swift */,
+				5226646026C3C85B00A0D1F6 /* LabelFullCaseViewController.swift */,
+			);
+			path = LabelTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,19 +403,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				5213C6E426AFAB8800A269A1 /* DoubleExtension.swift in Sources */,
-				5213C68926AFAB4D00A269A1 /* ViewController.swift in Sources */,
+				5213C68926AFAB4D00A269A1 /* ButtonTestViewController.swift in Sources */,
 				5213C6E526AFAB8800A269A1 /* UIDeviceExtensions.swift in Sources */,
 				5213C73226AFD04D00A269A1 /* DPDKeyboardListener.swift in Sources */,
 				5213C6D426AFAB8800A269A1 /* UIStackViewExtension.swift in Sources */,
 				5213C6D526AFAB8800A269A1 /* URLExtensions.swift in Sources */,
 				5213C6D226AFAB8800A269A1 /* DispatchQueue.swift in Sources */,
 				5213C6DA26AFAB8800A269A1 /* UICollectionViewExtension.swift in Sources */,
+				5226645D26C3BA3E00A0D1F6 /* ButtonFullCaseViewController.swift in Sources */,
 				5213C6DE26AFAB8800A269A1 /* IntExtensions.swift in Sources */,
 				5213C6DC26AFAB8800A269A1 /* DataExtension.swift in Sources */,
 				5213C73726AFD04D00A269A1 /* DropDownCell.swift in Sources */,
 				5213C6C626AFAB8800A269A1 /* WG_Closure.swift in Sources */,
 				5213C6C226AFAB8800A269A1 /* CGRectExtensions.swift in Sources */,
+				5226646126C3C85B00A0D1F6 /* LabelFullCaseViewController.swift in Sources */,
+				5226645B26C3B52900A0D1F6 /* NavigationManager.swift in Sources */,
 				5213C6C426AFAB8800A269A1 /* CGFloatExtensions.swift in Sources */,
+				5226645826C3B52900A0D1F6 /* PopAnimator.swift in Sources */,
 				5213C6CE26AFAB8800A269A1 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				5213C6E026AFAB8800A269A1 /* UIScrollViewExtension.swift in Sources */,
 				5213C6D826AFAB8800A269A1 /* JSONSerializableExtension.swift in Sources */,
@@ -367,18 +430,23 @@
 				5213C6C126AFAB8800A269A1 /* UIButtonExtension.swift in Sources */,
 				5213C6E126AFAB8800A269A1 /* UILabelExtensions.swift in Sources */,
 				5213C6FB26AFBD7E00A269A1 /* Font.swift in Sources */,
+				5226645A26C3B52900A0D1F6 /* PushAnimator.swift in Sources */,
 				5213C73826AFD04D00A269A1 /* DropDown+Appearance.swift in Sources */,
 				5213C6CB26AFAB8800A269A1 /* DictionaryExtensions.swift in Sources */,
 				5213C6D326AFAB8800A269A1 /* UIAccessibilityExtensions.swift in Sources */,
 				5213C6C326AFAB8800A269A1 /* NSLayoutConstraintExtension.swift in Sources */,
 				5213C6D726AFAB8800A269A1 /* UITapGestureRecognizerExtension.swift in Sources */,
 				5213C6C726AFAB8800A269A1 /* UIImageViewExtension.swift in Sources */,
+				5226644F26C3B45700A0D1F6 /* LabelTestViewController.swift in Sources */,
+				5226644D26C3B30F00A0D1F6 /* RootViewController.swift in Sources */,
 				5213C6DD26AFAB8800A269A1 /* LocaleExtensions.swift in Sources */,
 				5213C6CC26AFAB8800A269A1 /* StringExtensions.swift in Sources */,
 				5213C6DF26AFAB8800A269A1 /* DateExtensions.swift in Sources */,
 				5213C6C826AFAB8800A269A1 /* ArrayExtensions.swift in Sources */,
+				5226645126C3B4EB00A0D1F6 /* RouterProtocol.swift in Sources */,
 				5213C6D026AFAB8800A269A1 /* UITableViewExtension.swift in Sources */,
 				5213C6D626AFAB8800A269A1 /* UIViewControllerExtensions.swift in Sources */,
+				5226645926C3B52900A0D1F6 /* SnapShotView.swift in Sources */,
 				5213C73326AFD04D00A269A1 /* DPDConstants.swift in Sources */,
 				5213C6D126AFAB8800A269A1 /* BoolExtensions.swift in Sources */,
 				5213C6C526AFAB8800A269A1 /* UIAlertControllerExtension.swift in Sources */,
