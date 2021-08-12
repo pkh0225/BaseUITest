@@ -236,8 +236,9 @@ class BaseButton: UIButton {
     func updateImageSize() {
         func updateImage(_ image: UIImage, for state: UIControl.State) {
             let isTitle = self.title(for: state)?.isValid ?? false
-            let imageChange = image.toSize(image.size.ratioSize(setWidth: baseSize.imageSize(isTitle)))
-            if image.size != imageChange?.size {
+            let changeSize = image.size.ratioSize(setWidth: baseSize.imageSize(isTitle))
+            if image.size != changeSize {
+                let imageChange = image.toSize(changeSize)
                 setImage(imageChange, for: state)
             }
         }
