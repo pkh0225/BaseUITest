@@ -331,6 +331,9 @@
                                             <state key="normal" title="width fixed">
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onRestultButton:" destination="PVB-dK-bhw" eventType="touchUpInside" id="boj-9h-vJp"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6P-pm-CZG" customClass="BaseButton" customModule="BaseUITest" customModuleProvider="target">
                                             <rect key="frame" x="57" y="65" width="106" height="50"/>
@@ -341,6 +344,9 @@
                                             <state key="normal" title="width flexible">
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onRestultButton:" destination="PVB-dK-bhw" eventType="touchUpInside" id="ZoS-6e-sdk"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZeA-Ao-9Gr" customClass="BaseButton" customModule="BaseUITest" customModuleProvider="target">
                                             <rect key="frame" x="335" y="65" width="22" height="50"/>
@@ -351,6 +357,9 @@
                                             <state key="normal" image="view_big">
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onRestultButton:" destination="PVB-dK-bhw" eventType="touchUpInside" id="Nvx-dL-x8O"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

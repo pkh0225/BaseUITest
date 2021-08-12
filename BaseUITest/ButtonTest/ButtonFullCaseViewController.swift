@@ -134,5 +134,9 @@ class ButtonFullCaseCell: UITableViewCell {
     @IBOutlet weak var button: BaseButton!
     @IBOutlet weak var button2: BaseButton!
     @IBOutlet weak var button3: BaseButton!
+
+    @IBAction func onRestultButton(_ sender: BaseButton) {
+        alert(title: "버튼")
+    }
 }
 
