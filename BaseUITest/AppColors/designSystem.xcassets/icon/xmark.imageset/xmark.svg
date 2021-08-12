@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>03. tokens/Icon/m/type : xmark</title>
+    <g id="03.-tokens/Icon/m/type-:-xmark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="background" transform="translate(12.000000, 12.000000) rotate(180.000000) translate(-12.000000, -12.000000) " x="0" y="0" width="24" height="24"></rect>
+        <path d="M19.2696699,3.66966991 L20.3303301,4.73033009 L13.0596699,11.9996699 L20.3303301,19.2696699 L19.2696699,20.3303301 L11.9996699,13.0596699 L4.73033009,20.3303301 L3.66966991,19.2696699 L10.9396699,11.9996699 L3.66966991,4.73033009 L4.73033009,3.66966991 L11.9996699,10.9396699 L19.2696699,3.66966991 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>
