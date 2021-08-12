@@ -39,7 +39,8 @@ extension UIImage {
 
     public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect: CGRect = CGRect(origin: .zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
         color.setFill()
         UIRectFill(rect)
         let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
@@ -51,7 +52,7 @@ extension UIImage {
 
     public class func imageWithImage(image: UIImage?, scaledTo size: CGSize) -> UIImage? {
         guard let image = image else { return nil }
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let newImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -111,7 +112,7 @@ extension UIImage {
             }
         }
 
-        UIGraphicsBeginImageContext(targetSize)
+        UIGraphicsBeginImageContextWithOptions(targetSize, false, UIScreen.main.scale)
         // this will crop
         var thumbnailRect: CGRect = CGRect.zero
         thumbnailRect.origin = thumbnailPoint
@@ -124,7 +125,7 @@ extension UIImage {
     }
 
     public func toSize(_ size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -218,7 +219,7 @@ extension UIImage {
     }
 
     public class func imageRectangle(withFrame frame: CGRect, color: UIColor, alpha aAlpha: CGFloat) -> UIImage? {
-        UIGraphicsBeginImageContext(frame.size)
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, UIScreen.main.scale)
         guard let context: CGContext = UIGraphicsGetCurrentContext() else { return nil }
         context.setAlpha(aAlpha)
         context.setFillColor(color.cgColor)
@@ -340,7 +341,7 @@ extension UIImage {
         let rotatedSize = CGRect(origin: .zero, size: size)
             .applying(CGAffineTransform(rotationAngle: radian))
             .integral.size
-        UIGraphicsBeginImageContext(rotatedSize)
+        UIGraphicsBeginImageContextWithOptions(rotatedSize, false, UIScreen.main.scale)
         if let context = UIGraphicsGetCurrentContext() {
             let origin = CGPoint(x: rotatedSize.width / 2.0,
                                  y: rotatedSize.height / 2.0)
