@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>03. tokens/Icon/m/type : rectangle_2x2</title>
-    <g id="03.-tokens/Icon/m/type-:-rectangle_2x2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="background" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) " points="5.5067062e-14 2.93915232e-15 24 2.93915232e-15 24 24 5.5067062e-14 24"></polygon>
-        <path d="M10.5,13.5 L10.5,20.4 L3.6,20.4 L3.6,13.5 L10.5,13.5 Z M20.4,13.5 L20.4,20.4 L13.5,20.4 L13.5,13.5 L20.4,13.5 Z M10.5,3.6 L10.5,10.5 L3.6,10.5 L3.6,3.6 L10.5,3.6 Z M20.4,3.6 L20.4,10.5 L13.5,10.5 L13.5,3.6 L20.4,3.6 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero"></path>
-    </g>
-</svg>

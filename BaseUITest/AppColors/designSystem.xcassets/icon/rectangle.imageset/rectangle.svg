@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>03. tokens/Icon/m/type : rectangle</title>
-    <g id="03.-tokens/Icon/m/type-:-rectangle" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="background" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) " points="-7.10542736e-15 1.46957616e-15 24 1.46957616e-15 24 24 -7.10542736e-15 24"></polygon>
-        <rect id="path" fill="#000000" fill-rule="nonzero" x="3.6" y="3.6" width="16.8" height="16.8"></rect>
-    </g>
-</svg>

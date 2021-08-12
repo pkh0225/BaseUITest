@@ -41,31 +41,31 @@ class ButtonFullCaseViewController: UITableViewController, RouterProtocol {
 
 
             // image
-            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .left, rectStyle: .rect, text: "Test", image: UIImage(named: "check"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .left, rectStyle: .rect, text: "Test", image: UIImage(named: "check"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .left, rectStyle: .rect, text: "Test", image: UIImage(named: "check"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .left, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .left, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .left, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
 
-            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "arrow_chevron_cicle_right"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "arrow_chevron_cicle_right"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "arrow_chevron_cicle_right"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
-            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "arrow_right"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "arrow_right"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
             UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "arrow_right"), data: nil),
 
 
-            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "checkbox"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "checkbox"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "checkbox"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
-            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "chevron_right_xs"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "chevron_right_xs"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "chevron_right_xs"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
-            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "download"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "download"), data: nil),
-            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "download"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .left, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .center, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseButton(size: size, contentAlignment: .right, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
             ]
     }
 

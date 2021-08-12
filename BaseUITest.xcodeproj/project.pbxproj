@@ -73,9 +73,6 @@
 		5226645B26C3B52900A0D1F6 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226645726C3B52900A0D1F6 /* NavigationManager.swift */; };
 		5226645D26C3BA3E00A0D1F6 /* ButtonFullCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226645C26C3BA3E00A0D1F6 /* ButtonFullCaseViewController.swift */; };
 		5226646126C3C85B00A0D1F6 /* LabelFullCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226646026C3C85B00A0D1F6 /* LabelFullCaseViewController.swift */; };
-		5292764226C4CEFB00B4B60C /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292763F26C4CEFB00B4B60C /* AppColorSet.swift */; };
-		5292764326C4CEFB00B4B60C /* designSystem.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5292764026C4CEFB00B4B60C /* designSystem.xcassets */; };
-		5292764426C4CEFB00B4B60C /* AppColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5292764126C4CEFB00B4B60C /* AppColors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,9 +145,6 @@
 		5226645726C3B52900A0D1F6 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		5226645C26C3BA3E00A0D1F6 /* ButtonFullCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFullCaseViewController.swift; sourceTree = "<group>"; };
 		5226646026C3C85B00A0D1F6 /* LabelFullCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelFullCaseViewController.swift; sourceTree = "<group>"; };
-		5292763F26C4CEFB00B4B60C /* AppColorSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
-		5292764026C4CEFB00B4B60C /* designSystem.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = designSystem.xcassets; sourceTree = "<group>"; };
-		5292764126C4CEFB00B4B60C /* AppColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppColors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +177,6 @@
 		5213C68326AFAB4D00A269A1 /* BaseUITest */ = {
 			isa = PBXGroup;
 			children = (
-				5292763E26C4CEFB00B4B60C /* AppColors */,
 				5226645F26C3BA6100A0D1F6 /* LabelTest */,
 				5226645E26C3BA4800A0D1F6 /* ButtonTest */,
 				5226645226C3B4F900A0D1F6 /* Util */,
@@ -336,16 +329,6 @@
 			path = LabelTest;
 			sourceTree = "<group>";
 		};
-		5292763E26C4CEFB00B4B60C /* AppColors */ = {
-			isa = PBXGroup;
-			children = (
-				5292763F26C4CEFB00B4B60C /* AppColorSet.swift */,
-				5292764026C4CEFB00B4B60C /* designSystem.xcassets */,
-				5292764126C4CEFB00B4B60C /* AppColors.xcassets */,
-			);
-			path = AppColors;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,12 +386,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5292764326C4CEFB00B4B60C /* designSystem.xcassets in Resources */,
 				5213C73F26AFF86100A269A1 /* palette.png in Resources */,
 				5213C69126AFAB4E00A269A1 /* LaunchScreen.storyboard in Resources */,
 				5213C68E26AFAB4E00A269A1 /* Assets.xcassets in Resources */,
 				5213C73126AFD04D00A269A1 /* DropDownCell.xib in Resources */,
-				5292764426C4CEFB00B4B60C /* AppColors.xcassets in Resources */,
 				5213C68C26AFAB4D00A269A1 /* Main.storyboard in Resources */,
 				5213C73B26AFE70D00A269A1 /* colorWheel.png in Resources */,
 			);
@@ -461,7 +442,6 @@
 				5213C6DD26AFAB8800A269A1 /* LocaleExtensions.swift in Sources */,
 				5213C6CC26AFAB8800A269A1 /* StringExtensions.swift in Sources */,
 				5213C6DF26AFAB8800A269A1 /* DateExtensions.swift in Sources */,
-				5292764226C4CEFB00B4B60C /* AppColorSet.swift in Sources */,
 				5213C6C826AFAB8800A269A1 /* ArrayExtensions.swift in Sources */,
 				5226645126C3B4EB00A0D1F6 /* RouterProtocol.swift in Sources */,
 				5213C6D026AFAB8800A269A1 /* UITableViewExtension.swift in Sources */,

@@ -41,25 +41,25 @@ class LabelFullCaseViewController: UITableViewController, RouterProtocol {
             UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .left, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
             UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .left, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
-            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "circle_check"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "circle_check"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "circle_check"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .left, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
-            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "arrow_chevron_right"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "arrow_chevron_right"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "arrow_chevron_right"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .left, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
-            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "barcode_scan"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "barcode_scan"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "barcode_scan"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .right, rectStyle: .rect, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
-            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "caret_down"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "caret_down"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "caret_down"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .right, rectStyle: .round, text: "Test", image: UIImage(named: "view_big"), data: nil),
 
-            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "cart"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "cart"), data: nil),
-            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "cart"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .left, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .center, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
+            UI_BaseLabel(size: size, textAlignment: .right, imageAlignment: .right, rectStyle: .oval, text: "Test", image: UIImage(named: "view_big"), data: nil),
             ]
 
     }
