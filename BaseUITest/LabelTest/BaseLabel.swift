@@ -83,9 +83,9 @@ class BaseLabel: UILabel {
             case .L:
                 return UIEdgeInsets(top: 0.5, left: 8, bottom: -0.5, right: 8)
             case .M:
-                return UIEdgeInsets(top: 1, left: 6, bottom: -1, right: 6)
+                return UIEdgeInsets(top: 0.5, left: 6, bottom: -0.5, right: 6)
             case .S:
-                return UIEdgeInsets(top: 0.5, left: 4, bottom: -0.5, right: 4)
+                return UIEdgeInsets(top: 0.1, left: 4, bottom: -0.1, right: 4)
             }
         }
 
